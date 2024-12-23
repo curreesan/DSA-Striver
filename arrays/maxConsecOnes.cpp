@@ -17,8 +17,23 @@ int maxConsecOnes(vector<int> arr, int n) {
   return (curCount > finalCount) ? curCount : finalCount;
 }
 
+int findMaxOnes(vector<int> &nums) {
+  int maxOne = 0;
+  int cntOne = 0;
+  for (int i = 0; i < nums.size(); i++) {
+    if (nums[i] == 1) {
+      cntOne++;
+      maxOne = max(maxOne, cntOne);
+    } else {
+      cntOne = 0;
+    }
+  }
+  return maxOne;
+}
+
 int main() {
   vector<int> arr = {1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1};
-  cout << maxConsecOnes(arr, arr.size());
+  cout << maxConsecOnes(arr, arr.size()) << endl;
+  cout << findMaxOnes(arr);
   return 0;
 }
