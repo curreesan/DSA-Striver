@@ -15,9 +15,21 @@ int missingNumber(vector<int> arr, int n) {
   return -1;
 }
 
+int optimal(vector<int> arr, int n) {
+  int sum = (n + 1) * ((n + 2) / 2);
+
+  int arrSum = 0;
+  for (int i = 0; i < n; i++) {
+    arrSum += arr[i];
+  }
+  return sum - arrSum;
+}
+
 int main() {
   vector<int> array = {1, 2, 3, 4, 5, 7};
-  cout << missingNumber(array, array.size());
+  cout << missingNumber(array, array.size()) << endl;
+
+  cout << optimal(array, array.size());
 
   return 0;
 }
